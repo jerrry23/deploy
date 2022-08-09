@@ -1,0 +1,14 @@
+version: "3"
+services:
+  
+  cos:
+    build:
+      context: .
+      dockerfile: cos.Dockerfile
+      args:
+        # 此处默认从宿主机(host)环境变量中传参，在宿主机中需要提前配置 ACCESS_KEY_ID/ACCESS_KEY_SECRET 环境变量
+        - secretid=YOBKpjIfopIX0Mp4Umra4B9E/FHAm2aeqRn5wToXCTnMQ2DRhTJb1tia/rx64QIZ
+        - secretkey=k3yS/zvSiIAwVcb+hzC11UHptqnv55jLBPksPSTnbxPeQ1lHjB+NSA6psd9+JBIz
+        - endpoint=cos.ap-shanghai.myqcloud.com
+    ports:
+      - 8000:80
