@@ -14,8 +14,9 @@ const html= fs.readFileSync("./index.html")
 
 
 const server  = http.createServer(async (req,res) =>{   
-  const stat = await  fsp.stat("./index.html")
-  res.setHeader("content-length",stat.size)
+
+  // const stat = await  fsp.stat("./index.html")
+  // res.setHeader("content-length",stat.size)
    // 此处需要手动处理下 Content-Length
   fs.createReadStream('./index.html').pipe(res)
 })
@@ -25,5 +26,7 @@ server.listen(3000,()=>{
 })
 
 // node 如何读取一个2G的文件 
+
+// 当不设置响应头的时候 ，http 响应的报文会有Transfer-Encoding: chunked 
 
  
