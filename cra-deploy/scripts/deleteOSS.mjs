@@ -11,6 +11,8 @@ const client = new OSS({
   bucket: 'shanyue-cra'
 })
 
+
+
 async function getCurrentFiles () {
   const files = []
   for await (const entry of readdirp('./build', { type: 'files' })) {
